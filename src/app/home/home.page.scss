@@ -1,27 +1,104 @@
-#container {
-  text-align: center;
-
+ion-header {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background: none;
+  ion-toolbar {
+    background: none;
+    --background: transparent;
+  }
+  ion-button {
+    background-color: #a7282b;
+    height: 70px;
+    width: 70px;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.floatingShare {
+  z-index: 9999;
+  position: absolute;
+  padding: 16px;
+  bottom: 0;
+  ion-button {
+    background-color: #a7282b;
+    height: 70px;
+    width: 70px;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-content {
+  ion-grid {
+    padding: 0;
 
-  color: #8c8c8c;
+    ion-row {
+      height: 100vh;
 
-  margin: 0;
+      ion-col {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+          color: #cfcfcf;
+          display: none;
+          transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        img {
+          transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        ion-buttons {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          z-index: 9999;
+
+          ion-button {
+            display: none;
+            height: 93px;
+            width: 172px;
+            background: #d7d8da3b 0% 0% no-repeat padding-box;
+            font-size: 29px;
+            font-weight: 700;
+            color: #ffffff;
+          }
+        }
+        &:hover {
+          h1 {
+            display: block;
+            transform: matrix(0, -1, 1, 0, 0, 0);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 22.57px;
+            font-size: 91px;
+            position: absolute;
+            right: 45px;
+            transition: 0.7s cubic-bezier(0.47, 0, 0.745, 0.715);
+          }
+
+          img {
+            margin-left: 24%;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+
+          ion-buttons {
+            ion-button {
+              display: block;
+            }
+          }
+
+          @media (max-width: 800px) {
+            h1 {
+              font-size: 55px;
+              right: -5%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-#container a {
-  text-decoration: none;
+
+.applyBorder { 
+  background: #d7d8da3b 0% 0% no-repeat padding-box;
 }

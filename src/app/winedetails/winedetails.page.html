@@ -1,5 +1,8 @@
 <ion-header class="ion-no-border ion-padding" [ngClass]="{'applyBorder':scrollYPosition > 10}" [translucent]="true">
   <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+    </ion-buttons>
     <ion-buttons slot="primary">
       <ion-button>
         <svg xmlns="http://www.w3.org/2000/svg" width="30.24" height="31.5" viewBox="0 0 30.24 31.5">
@@ -24,19 +27,24 @@
   </ion-buttons>
 </div>
 
-<ion-content [fullscreen]="true" [scrollEvents]="true"
-(ionScroll)="logScrolling($event)" >
+<ion-content [fullscreen]="true" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
   <ion-grid>
-    <ion-row>
-      <ion-col size-lg="4" size="12" *ngFor="let wine of wineList" [style.background-color]="wine.bgcolor" [routerLink]="['/','winedetails',wine.id]">
-        <h1> {{wine.name}} </h1>
-        <img [src]="wine.img">
+    <ion-row [style.background-color]="selectedWine.bgcolor">
+      <ion-col size-lg="7" size="12">
+        <ion-label>
+          <h1> {{selectedWine.name}} </h1>
+          <p> {{selectedWine.description}} </p>
 
-        <ion-buttons>
-          <ion-button [routerLink]="['/','winedetails',wine.id]">
-            VIEW
-          </ion-button>
-        </ion-buttons>
+          <ion-buttons>
+            <ion-button>4</ion-button>
+            <ion-button>ADD TO CART</ion-button>
+          </ion-buttons>
+        </ion-label>
+
+      </ion-col>
+
+      <ion-col size-lg="4" size="12">
+        <img [src]="selectedWine.img">
       </ion-col>
     </ion-row>
   </ion-grid>
